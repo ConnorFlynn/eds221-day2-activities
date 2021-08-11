@@ -1,0 +1,82 @@
+---
+title: "Vectors, Lists, & Data Frames"
+author: "Connor Flynn"
+date: "8/10/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# create a vector
+
+vec_1 <- c(2, 5, 9, 10, 8, 12, 10)
+
+# what is the class
+class(vec_1)
+
+# what is the type
+typeof(vec_1)
+
+# store the third element 
+vec_1_e3 <- vec_1[3]
+vec_1_e3
+
+# store the first element 
+vec_1_e1 <- vec_1[1]
+vec_1_e1
+
+
+# store elements 5-7
+vec_1_e_5to7 <- vec_1[5:7]
+vec_1_e_5to7
+
+# store as characters
+vec_1_char <- as.character(vec_1)
+
+```
+
+
+```{r}
+# create vector 2
+
+vec_2 <- c(town = "Santa Barbara", location = "Rincon", swell = "south")
+
+# what is the length of vec_2
+class(vec_2)
+
+# what is the type of vec_2 
+typeof(vec_2)
+
+vec_2[2]
+
+vec_2["location"]
+
+length(vec_2)
+
+# save vec_2 by the 2nd element
+vec_2_e2 <- vec_2[2]
+
+
+```
+
+
+Create a data frame
+
+```{r}
+df_1 <- data.frame(region = c("A", "B", "A", "D"), 
+                   species = c("otter", "great white", "sea lion", "grey whale"),
+                   count = c(12, 2, 36, 6))
+# data frame class
+class(df_1)
+
+# species class
+class(df_1$species)
+
+# determine max count
+max_count <- max(df_1$count)
+
+```
+

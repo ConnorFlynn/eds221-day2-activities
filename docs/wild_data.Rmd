@@ -1,0 +1,44 @@
+---
+title: "Wild Data"
+author: "Connor Flynn"
+date: "8/10/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(here)
+library(janitor)
+```
+
+```{r}
+# import data
+
+mack_verts <- read_csv(here("data", "AS00601.csv"))
+
+mack_verts <- mack_verts %>% clean_names()
+
+mc_salamanders <- dplyr::filter(mack_verts, species == "DITE")
+
+
+```
+
+
+```{r}
+# Make a plot
+
+salamander_size <- mack_verts %>% ggplot(aes(x = length1, y = weight)) +
+  geom_point(color = "purple")+
+  theme_gray()
+  
+  
+
+salamander_size + labs(title = "Salamander snout vent length relative to weight",
+                      caption = "Credit: EDI")
+  
+
+salamander_size
+```
+
